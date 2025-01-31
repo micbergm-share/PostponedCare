@@ -55,7 +55,6 @@ tab w_cati insamp2, m
 
 
 ** Trim weights
-*table country, stat(max cciw) stat(n cciw) nformat(%8.0f)
 cap drop wgt
 gen wgt = cciw
 levelsof country, local(cnt)
@@ -65,7 +64,6 @@ foreach n of numlist 0 1 {
 		replace wgt = r(p99) if cciw>r(p99) & cciw<. & country==`c' & insamp2==1 & w_cati==`n'
 	}
 }
-*table country, stat(max cciw wgt) nformat(%8.0f)
 sum cciw wgt if insamp2==1 // 96,255
 tab w_cati insamp2 if wgt!=.
 
