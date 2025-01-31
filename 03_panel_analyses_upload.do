@@ -1,6 +1,6 @@
 * Panel analyses
 * Author: MB
-* Last edited: Oct 2024
+* Last edited: Jan 2025
 
 
 *---[Set Stata]-----------------------------------------------------------------
@@ -57,7 +57,6 @@ tab w_capi insamp if forgone_dC<., m
 
 
 ** Trim weights
-*table country, stat(max cciw) stat(n cciw) nformat(%8.0f)
 cap drop wgt
 gen wgt = cciw
 levelsof country, local(cnt)
@@ -67,7 +66,6 @@ foreach n of numlist 0 1 {
 		replace wgt = r(p99) if cciw>r(p99) & cciw<. & country==`c' & insamp==1 & w_capi==`n'
 	}
 }
-*table country, stat(max cciw wgt) nformat(%8.0f)
 sum cciw wgt if insamp==1 // 107,519
 tab w_capi insamp if wgt!=.
 
