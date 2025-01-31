@@ -1,6 +1,6 @@
 * Descriptive analyses
 * Author: MB
-* Last edited: Oct 2024
+* Last edited: Jan 2025
 
 
 *---[Set Stata]-----------------------------------------------------------------
